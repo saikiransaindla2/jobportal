@@ -26,4 +26,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function showk()
+    {
+        return view('saik');
+    }
+    public function showkk()
+    {
+        return view('saikk');
+    }
 }
