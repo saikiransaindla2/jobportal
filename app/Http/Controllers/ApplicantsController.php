@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\AvailableJob;
 use Auth;
 use App\User;
+use App\Applicant;
 use App\Http\Requests;
 
 class ApplicantsController extends Controller
@@ -48,6 +49,24 @@ class ApplicantsController extends Controller
 
         return redirect('/applicants');
         //echo $input;
+    }
+
+    public function details()
+    {
+        return view('applicants/details');
+    }
+    
+    public function storeDetails(Request $request)
+    {
+        $input=$request->all();
+        $user=Auth::user();
+        //$user_id=->id;
+        $input['user_id']=$user->id;
+        $input['name']=$user->name;
+        //return $input;
+        Applicant::create($input);
+
+        return redirect('/applicants');
     }
 
     /**

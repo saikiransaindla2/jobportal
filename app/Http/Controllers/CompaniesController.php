@@ -33,12 +33,14 @@ class CompaniesController extends Controller
         return view('companies.create');
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         //
@@ -52,6 +54,23 @@ class CompaniesController extends Controller
         return redirect('/companies');
     }
 
+    public function details()
+    {
+        return view('companies/details');
+    }
+    
+    public function storeDetails(Request $request)
+    {
+        $input=$request->all();
+        $user=Auth::user();
+        //$user_id=->id;
+        $input['user_id']=$user->id;
+        $input['name']=$user->name;
+        //return $input;
+        Company::create($input);
+
+        return redirect('/companies');
+    }
     /**
      * Display the specified resource.
      *
@@ -64,7 +83,9 @@ class CompaniesController extends Controller
         $company_id=User::find($user_id)->company->id;
         $applications=Company::find($company_id)->application;
         //
+        if($applications)
         return view('companies.show',compact('applications'));
+        return view('companies.index');
     }
     public function view()
     {
