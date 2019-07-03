@@ -8,6 +8,6 @@ class AvailableJob extends Model
 {
     //
     protected $fillable = [
-        'job_name', 'experience', 'tech', 'pay_scale',
+        'job_name', 'experience', 'tech', 'company_id', 'pay_scale',
     ];
 }

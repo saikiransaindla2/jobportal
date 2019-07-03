@@ -20,6 +20,8 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('/applicants', 'ApplicantsController');
+Route::resource('/companies', 'CompaniesController');
+Route::get('/companies/view', 'CompaniesController@view');
 
 //Route::get('/saik', 'HomeController@showk');
 //Route::get('/saikk', 'HomeController@showkk');

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\AvailableJob;
 use Auth;
-use App\User;
+use App\AvailableJob;
 use App\Http\Requests;
+use App\User;
+use App\Company;
 
-class ApplicantsController extends Controller
+class CompaniesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class ApplicantsController extends Controller
     public function index()
     {
         //
-        return view('applicants.index');
+        return view('companies.index');
     }
 
     /**
@@ -29,7 +30,7 @@ class ApplicantsController extends Controller
     public function create()
     {
         //
-        return view('applicants.create');
+        return view('companies.create');
     }
 
     /**
@@ -42,12 +43,13 @@ class ApplicantsController extends Controller
     {
         //
         $input=$request->all();
-        $input['company_id']=Auth::user()->id;
+        $user_id=Auth::user()->id;
+        $company_id=User::find($user_id)->company->id;
+        $input['company_id']=$company_id;
         //return $input;
         AvailableJob::create($input);
 
-        return redirect('/applicants');
-        //echo $input;
+        return redirect('/companies');
     }
 
     /**
@@ -58,10 +60,16 @@ class ApplicantsController extends Controller
      */
     public function show($id)
     {
+        $user_id=Auth::user()->id;
+        $company_id=User::find($user_id)->company->id;
+        $applications=Company::find($company_id)->application;
         //
-        $users=User::find($id)->applicant->all();
-        //return $users;
-        return view('applicants.show',compact('users'));
+        return view('companies.show',compact('applications'));
+    }
+    public function view()
+    {
+        //
+        return view('companies.view');
     }
 
     /**

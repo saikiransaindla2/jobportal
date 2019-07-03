@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApplicantsTable extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,12 @@ class CreateApplicantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('applicants', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('job_id');
+            $table->integer('company_id');
             $table->integer('user_id');
-            $table->string('name');
-            $table->string('mobile');
-            $table->string('address');
-            $table->string('gender');
-            $table->string('education');
+            $table->string('app_status')->default('unseen');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateApplicantsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('applicants');
+        Schema::drop('applications');
     }
 }

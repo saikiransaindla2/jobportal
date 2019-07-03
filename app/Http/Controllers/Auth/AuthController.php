@@ -28,7 +28,16 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/companies';
+
+    protected function authenticated($request, $user)
+    {
+        $id=$user->type;
+        if($user->type === 'Applicant') {
+            return redirect()->intended("/applicants");
+        }
+        return redirect()->intended("/companies");
+    }
     
     /**
      * Create a new authentication controller instance.

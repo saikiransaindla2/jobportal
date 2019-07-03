@@ -18,6 +18,7 @@ class CreateAvailableJobsTable extends Migration
             $table->string('experience');
             $table->string('tech');
             $table->string('pay_scale');
+            $table->integer('company_id');
             $table->timestamps();
         });
     }
