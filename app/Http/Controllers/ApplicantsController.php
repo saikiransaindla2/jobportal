@@ -50,6 +50,13 @@ class ApplicantsController extends Controller
         return redirect('/applicants');
         //echo $input;
     }
+    public function apply($id)
+    {
+        $applicant=User::find(Auth::user()->id)->applicant;
+        $job=AvailableJob::find($id);
+        $applicant->availablejob()->save($job);
+        return redirect('/applicants/1');//////can directly be sent to the view.do it later
+    }
 
     public function details()
     {
@@ -78,11 +85,30 @@ class ApplicantsController extends Controller
     public function show($id)
     {
         //
-        $users=User::find($id)->applicant->all();
+        //$users=User::find($id)->applicant->all();
         //return $users;
-        return view('applicants.show',compact('users'));
-    }
+        //return view('applicants.show',compact('users'));
 
+        //$user_id=Auth::user()->id;
+        //$company_id=User::find($user_id)->company->id;
+        //$applications=Company::find($company_id)->application;
+        $jobs=AvailableJob::all();
+        //
+        if($jobs)
+        return view('applicants.view',compact('jobs'));
+        return view('applicants.index');
+    }
+    public function viewjobs()
+    {
+        $user=Auth::user();
+        $applicant_id=$user->applicant->id;
+        $jobs=Applicant::find($applicant_id)->availablejob;
+        //return $jobs;
+
+        if($jobs)
+        return view('applicants.view',compact('jobs'));
+        return view('applicants.index');
+    }
     /**
      * Show the form for editing the specified resource.
      *

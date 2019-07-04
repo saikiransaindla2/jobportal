@@ -25,8 +25,8 @@
                 <div class="panel-body">
                     
                 <a href='applicants/create' class="button">Profile Details</a>
-                <a href='applicants/create' class="button">View Job Openings</a>
-                <a href='applicants/create' class="button">View Job Applications</a>
+                <a href='applicants/1' class="button">View Job Openings</a>
+                <a href='applicants/viewjobs' class="button">View Job Applications</a>
 
 
                 </div>

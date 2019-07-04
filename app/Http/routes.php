@@ -12,9 +12,10 @@
 */
 
 use App\User;
+use App\AvailableJob;
 
 Route::get('/', function () {
-    return view('applicants.index');
+    return view('welcome');
 });
 
 Route::auth();
@@ -47,7 +48,16 @@ Route::get('/diverge', function(){
 Route::post('/companies/storeDetails','CompaniesController@storeDetails');
 Route::get('/companies/details','CompaniesController@details');
 Route::get('/companies/view', 'CompaniesController@view');
+Route::get('/companies/final/{id}', function($id){
 
+    $applicants=AvailableJob::find($id)->applicant;
+    //return $applicants;
+    
+    return view('companies/final',compact('applicants'));
+});
+
+Route::get('/applicants/viewjobs', 'ApplicantsController@viewjobs');
+Route::get('/applicants/apply/{id}','ApplicantsController@apply');
 Route::post('/applicants/storeDetails','ApplicantsController@storeDetails');
 Route::get('/applicants/details','ApplicantsController@details');
 

@@ -19,7 +19,12 @@ class CompaniesController extends Controller
     public function index()
     {
         //
-        return view('companies.index');
+        $user=User::find(Auth::user()->id)->company;
+        //return $user;
+
+        $jobs=Company::find($user->id)->availablejob;
+        //return $jobs;
+        return view('companies.index',compact('jobs'));
     }
 
     /**
@@ -58,7 +63,7 @@ class CompaniesController extends Controller
     {
         return view('companies/details');
     }
-    
+
     public function storeDetails(Request $request)
     {
         $input=$request->all();
