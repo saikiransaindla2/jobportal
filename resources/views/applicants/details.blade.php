@@ -2,7 +2,6 @@
 
 
 
-
 @section('content')
 
 
@@ -31,6 +30,11 @@
        <div class="form-group">
         {!! Form::label('education', 'Education:') !!}
         {!! Form::text('education', null, ['class'=>'form-control'])!!}
+       </div>
+
+       <div class="form-group">
+        {!! Form::label('resume_id', 'Resume:') !!}
+        {!! Form::file('resume_id', null, ['class'=>'form-control'])!!}
        </div>
 
          <div class="form-group">

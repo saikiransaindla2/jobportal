@@ -8,7 +8,7 @@ class Applicant extends Model
 {
     //
     protected $fillable = [
-        'user_id', 'name', 'address', 'mobile', 'gender', 'education'
+        'user_id', 'name', 'address', 'mobile', 'gender', 'education', 'resume_id',
     ];
 
     public function user(){
@@ -16,5 +16,9 @@ class Applicant extends Model
     }
     public function availablejob(){
         return $this->belongsToMany('App\AvailableJob','applicant_available_job','applicant_id','job_id');
+    }
+
+    public function resume(){
+        return $this->belongsTo('App\Resume');
     }
 }

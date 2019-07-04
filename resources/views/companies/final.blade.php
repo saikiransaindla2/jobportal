@@ -10,6 +10,7 @@
     <th>Address</th>
     <th>Gender</th>
     <th>Education</th>
+    <th>Resume</th>
   </tr>
   @if($applicants)
     @foreach($applicants as $applicant)
@@ -21,6 +22,11 @@
       <td>{{$applicant->address}}</td>
       <td>{{$applicant->gender}}</td>
       <td>{{$applicant->education}}</td>
+      @if($applicant->resume)
+      <td><a href="/resumes/{{$applicant->resume->file}}" download>Download Resume</td>
+      @else
+      <td>No resume uploaded</td>
+      @endif
     </tr>
     @endforeach
   @endif

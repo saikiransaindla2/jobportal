@@ -8,6 +8,7 @@ use Auth;
 use App\User;
 use App\Applicant;
 use App\Http\Requests;
+use App\Resume;
 
 class ApplicantsController extends Controller
 {
@@ -75,6 +76,13 @@ class ApplicantsController extends Controller
         $input['user_id']=$user->id;
         $input['name']=$user->name;
         //return $input;
+        if($file = $request->file('resume_id')){
+            $path = time() . $file->getClientOriginalName();
+            $file->move('resumes', $path );
+            $resume = Resume :: create(['file'=>$path]);
+            $input['resume_id'] = $resume->id;
+        }
+
         Applicant::create($input);
 
         return redirect('/applicants');

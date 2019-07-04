@@ -16,7 +16,7 @@
 @section('content')
 
 
-    <h1>Hi {{Auth::user()->name}} : Jobs Available</h1>
+    <h1>Hi {{Auth::user()->name}} : Jobs Applied</h1>
     
     <table class='table'>
   <tr>

@@ -24,9 +24,9 @@
 
                 <div class="panel-body">
                     
-                <a href='companies/create' class="button">Update Profile Details</a>
+                <!-- <a href='companies/create' class="button">Update Profile Details</a> -->
                 <a href='companies/create' class="button">Add Job Openings</a>
-                <a href='companies/1' class="button">View Job Applications</a>
+                <!-- <a href='companies/1' class="button">View Job Applications</a> -->
 
 
                 </div>
