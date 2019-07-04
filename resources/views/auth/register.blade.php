@@ -42,13 +42,12 @@
                             <label for="type" class="col-md-4 control-label">Type</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}">
+                                <select id="type" class="form-control" name="type" >
+                                    <option value="Applicant">Applicant</option>
+                                    <option value="Company">Company</option>
+                                </select>
 
-                                @if ($errors->has('type'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
-                                @endif
+                                
                             </div>
                         </div>
 
