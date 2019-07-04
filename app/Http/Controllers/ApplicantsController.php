@@ -50,12 +50,16 @@ class ApplicantsController extends Controller
         return redirect('/applicants');
         //echo $input;
     }
-    public function apply($id)
+    public function apply($id,$idd)
     {
         $applicant=User::find(Auth::user()->id)->applicant;
         $job=AvailableJob::find($id);
         $applicant->availablejob()->save($job);
+        if($idd=1)
         return redirect('/applicants/1');//////can directly be sent to the view.do it later
+        else{
+            return redirect('/applicants/search');
+        }
     }
 
     public function details()
@@ -84,7 +88,7 @@ class ApplicantsController extends Controller
      */
     public function show($id)
     {
-        //
+        
         //$users=User::find($id)->applicant->all();
         //return $users;
         //return view('applicants.show',compact('users'));
@@ -93,10 +97,27 @@ class ApplicantsController extends Controller
         //$company_id=User::find($user_id)->company->id;
         //$applications=Company::find($company_id)->application;
         $jobs=AvailableJob::all();
+        if($id === 2)
+        {
+            //$jobs=AvailableJob::all();
         //
-        if($jobs)
+        //if($jobs)
         return view('applicants.view',compact('jobs'));
-        return view('applicants.index');
+        //return view('applicants.index');
+        }
+        else
+        {
+            
+            return view('applicants/search',compact('jobs'));
+        }
+    }
+    public function search(Request $request)
+    {
+        $title=$request['search_jobs'];
+        // return $title;
+        $jobs=AvailableJob::where('job_name','LIKE', '%'.$title.'%')->get();
+        //return $jobs;
+        return view('applicants/search',compact('jobs'));
     }
     public function viewjobs()
     {

@@ -57,9 +57,10 @@ Route::get('/companies/final/{id}', function($id){
 });
 
 Route::get('/applicants/viewjobs', 'ApplicantsController@viewjobs');
-Route::get('/applicants/apply/{id}','ApplicantsController@apply');
+Route::get('/applicants/apply/{id}/{idd}','ApplicantsController@apply');
 Route::post('/applicants/storeDetails','ApplicantsController@storeDetails');
 Route::get('/applicants/details','ApplicantsController@details');
+Route::post('/applicants/search', 'ApplicantsController@search');
 
 Route::resource('/applicants', 'ApplicantsController');
 Route::resource('/companies', 'CompaniesController');
