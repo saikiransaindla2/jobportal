@@ -31,7 +31,7 @@
       <!-- <td><a href="/companies/updateStatus/{{$applicant->id}}/{{$idd}}">{{App\AvailableJob::find($idd)->applicant->find($applicant->id)->pivot->status}}</td>
      -->
      <td>{!! Form::open(['method'=>'PUT', 'action'=> ['CompaniesController@updateStatus',$applicant->id,$idd]]) !!}
-     {!! Form::label('status', 'Status:') !!}
+     <!-- {!! Form::label('status', 'Status:') !!} -->
      {!! Form::text('status', App\AvailableJob::find($idd)->applicant->find($applicant->id)->pivot->status, ['class'=>'form-control'])!!}
      {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
      {!! Form::close() !!}
