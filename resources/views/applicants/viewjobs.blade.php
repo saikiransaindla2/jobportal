@@ -27,8 +27,7 @@
     <th>Tech</th>
     <th>Pay Scale</th>
     <th>Created</th>
-    <th>Updated</th>
-    <th>Apply</th>
+    <th>Status</th>
   </tr>
    @if($jobs)
     @foreach($jobs as $job)
@@ -41,7 +40,7 @@
       <td>{{$job->tech}}</td>
       <td>{{$job->pay_scale}}</td>
       <td>{{$job->created_at->diffForHumans()}}</td>
-      <td>{{$job->updated_at->diffForHumans()}}</td>
+      <td>{{App\AvailableJob::find($job->id)->applicant->find($applicant_id)->pivot->status}}</td>
     </tr>
     @endforeach
   @endif 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Applicant;
 use App\AvailableJob;
 use App\Http\Requests;
 use App\User;
@@ -76,6 +77,14 @@ class CompaniesController extends Controller
 
         return redirect('/companies');
     }
+
+    public function updateStatus(Request $request, $id, $idd)
+    {
+        $job = Applicant::find($id)->availablejob->find($idd);
+        $job->pivot->update(['status'=>$request->status]);
+        $job->save();
+        return redirect('/companies/final/'.$idd);
+    }
     /**
      * Display the specified resource.
      *
@@ -84,13 +93,15 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        $user_id=Auth::user()->id;
+
+        ////Gotta delete this since applications table is deleted
+        /*$user_id=Auth::user()->id;
         $company_id=User::find($user_id)->company->id;
         $applications=Company::find($company_id)->application;
         //
         if($applications)
         return view('companies.show',compact('applications'));
-        return view('companies.index');
+        return view('companies.index');*/
     }
     public function view()
     {

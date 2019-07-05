@@ -17,6 +17,6 @@ class AvailableJob extends Model
     }
 
     public function applicant(){
-        return $this->belongsToMany('App\Applicant','applicant_available_job','job_id','applicant_id');
+        return $this->belongsToMany('App\Applicant','applicant_available_job','job_id','applicant_id')->withPivot('status');
     }
 }

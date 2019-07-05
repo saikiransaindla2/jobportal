@@ -40,12 +40,5 @@ class HomeController extends Controller
         return view('applicants.index');
 
     }
-    public function showk()
-    {
-        return view('saik');
-    }
-    public function showkk()
-    {
-        return view('saikk');
-    }
+    
 }

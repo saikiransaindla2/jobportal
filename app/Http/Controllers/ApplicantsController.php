@@ -132,10 +132,11 @@ class ApplicantsController extends Controller
         $user=Auth::user();
         $applicant_id=$user->applicant->id;
         $jobs=Applicant::find($applicant_id)->availablejob;
+
         //return $jobs;
 
         if($jobs)
-        return view('applicants.view',compact('jobs'));
+        return view('applicants.viewjobs',compact('jobs','applicant_id'));
         return view('applicants.index');
     }
     /**

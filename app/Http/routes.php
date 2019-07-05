@@ -50,11 +50,13 @@ Route::get('/companies/details','CompaniesController@details');
 Route::get('/companies/view', 'CompaniesController@view');
 Route::get('/companies/final/{id}', function($id){
 
+    $idd=$id;
     $applicants=AvailableJob::find($id)->applicant;
     //return $applicants;
     
-    return view('companies/final',compact('applicants'));
+    return view('companies/final',compact('applicants','idd'));
 });
+Route::put('/companies/updateStatus/{id}/{idd}','CompaniesController@updateStatus');
 
 Route::get('/applicants/viewjobs', 'ApplicantsController@viewjobs');
 Route::get('/applicants/apply/{id}/{idd}','ApplicantsController@apply');
@@ -65,9 +67,4 @@ Route::post('/applicants/search', 'ApplicantsController@search');
 Route::resource('/applicants', 'ApplicantsController');
 Route::resource('/companies', 'CompaniesController');
 
-
-
-
-//Route::get('/saik', 'HomeController@showk');
-//Route::get('/saikk', 'HomeController@showkk');
 

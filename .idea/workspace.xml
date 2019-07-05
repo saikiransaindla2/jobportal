@@ -2,13 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="930e52d0-f5bf-46ac-be01-342a7ce50175" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Applicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Applicant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Application.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AvailableJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AvailableJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Company.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ApplicantsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ApplicantsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/applicants/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applicants/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompaniesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompaniesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_03_071531_create_applications_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_03_195724_create_applicant_available_job_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_03_195724_create_applicant_available_job_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/applicants/viewjobs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/applicants/viewjobs.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/companies/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/companies/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/companies/final.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/companies/final.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/companies/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/companies/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/saik.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/saikk.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

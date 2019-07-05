@@ -24,7 +24,7 @@
        </div>
 
        <div class="form-group">
-        {!! Form::label('tech', 'Tech:') !!}
+        {!! Form::label('tech', 'Tech Stack:') !!}
         {!! Form::text('tech', null, ['class'=>'form-control'])!!}
        </div>
 

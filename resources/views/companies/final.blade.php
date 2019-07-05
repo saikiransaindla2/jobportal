@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-<h1>Hey dude, you're an AVENGER now!</h1>
+<h1>Applications Received :</h1></br>
 <table class='table'>
   <tr>
     <th>Id</th>
@@ -11,6 +11,7 @@
     <th>Gender</th>
     <th>Education</th>
     <th>Resume</th>
+    <th>Update Status</th>
   </tr>
   @if($applicants)
     @foreach($applicants as $applicant)
@@ -27,7 +28,17 @@
       @else
       <td>No resume uploaded</td>
       @endif
-    </tr>
+      <!-- <td><a href="/companies/updateStatus/{{$applicant->id}}/{{$idd}}">{{App\AvailableJob::find($idd)->applicant->find($applicant->id)->pivot->status}}</td>
+     -->
+     <td>{!! Form::open(['method'=>'PUT', 'action'=> ['CompaniesController@updateStatus',$applicant->id,$idd]]) !!}
+     {!! Form::label('status', 'Status:') !!}
+     {!! Form::text('status', App\AvailableJob::find($idd)->applicant->find($applicant->id)->pivot->status, ['class'=>'form-control'])!!}
+     {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
+     {!! Form::close() !!}
+
+     </td>
+
+     </tr>
     @endforeach
   @endif
 </table>

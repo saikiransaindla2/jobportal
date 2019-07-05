@@ -16,6 +16,7 @@ class CreateApplicantAvailableJobTable extends Migration
             $table->increments('id');
             $table->integer('applicant_id');
             $table->integer('job_id');
+            $table->string('status')->default('Unseen');
             $table->timestamps();
         });
     }
